@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
   const Autor = sequelize.define(alias, cols, config);
 
   Autor.associate = function (models) {
-    Autor.hasMany(models.Libros, {
+    Autor.hasMany(models.Libro, {
       foreignKey: "autor_id",
       targetKey: "id",
       timestamps: false,

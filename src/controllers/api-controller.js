@@ -1,9 +1,9 @@
-const db = require("../database/models");
+const db = require("../../database/models");
 const sequelize = db.sequelize;
 
 module.exports = {
   libros: (req, res) => {
-    const librosPromise = Libro.findAll();
+    const librosPromise = db.Libro.findAll();
     Promise.all([librosPromise])
       .then(([libros]) => {
         res.json(libros);
@@ -18,7 +18,7 @@ module.exports = {
 
   filtrarPorTitulo: (req, res) => {
     const { titulo } = req.query;
-    const librosPromise = Libro.findAll({ where: { titulo: titulo } });
+    const librosPromise = db.Libro.findAll({ where: { titulo: titulo } });
     Promise.all([librosPromise])
       .then(([libros]) => {
         res.json(libros);
@@ -34,7 +34,7 @@ module.exports = {
 
   detallesAutor: (req, res) => {
     const { id } = req.params;
-    const autorPromise = Autor.findByPk(id);
+    const autorPromise = db.Autor.findByPk(id);
     Promise.all([autorPromise])
       .then(([autor]) => {
         if (autor) {
@@ -54,7 +54,7 @@ module.exports = {
 
   librosPorCategoria: (req, res) => {
     const { id } = req.params;
-    const librosPromise = Libro.findAll({ where: { categoriaId: id } });
+    const librosPromise = db.Libro.findAll({ where: { categoriaId: id } });
     Promise.all([librosPromise])
       .then(([libros]) => {
         res.json(libros);
@@ -70,7 +70,7 @@ module.exports = {
 
   nuevoLibro: (req, res) => {
     const { titulo, autorId, categoriaId } = req.body;
-    Libro.create({ titulo, autorId, categoriaId })
+    db.Libro.create({ titulo, autorId, categoriaId })
       .then((libro) => {
         res.json(libro);
       })
