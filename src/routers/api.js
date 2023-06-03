@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 const apiController = require("../controllers/api-controller");
 
-router.get("/libros", apiController.libros);
-router.get("/libros/filtrar", apiController.filtrarPorTitulo);
-router.get("/autor/:id", apiController.detallesAutor);
-router.get("/categoria/:id/libros", apiController.librosPorCategoria);
-router.post("/libros", apiController.nuevoLibro);
+router.get("/libros", apiController.libros); //Muestra el listado de libros
+router.get("/libros/filtrar/", apiController.filtrarPorTitulo); //Filtra libros -> filtrar?titulo=1984 Muestra el libro 1984
+router.get("/autor/:id", apiController.detallesAutor); //Muestra autor por ID
+router.get("/categoria/:id/libros", apiController.librosPorCategoria); //Muestra el listado de libros por categoria (ID)
+router.post("/libros", apiController.nuevoLibro); //
 
 module.exports = router;

@@ -6,21 +6,28 @@ module.exports = (sequelize, dataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    nombre: {
+    titulo: {
       type: dataTypes.STRING,
     },
   };
   let config = {
-    tableName: "libros",
+    tableName: "libro",
     timestamps: false,
   };
 
   const Libro = sequelize.define(alias, cols, config);
 
   Libro.associate = function (models) {
-    Libro.belongsTo(models.Autor);
-    Libro.belongsTo(models.Categoria);
+    Libro.belongsTo(models.Autor, {
+      foreignKey: "autor_id",
+      sourceKey: "id",
+      timestamps: false,
+    });
+    Libro.belongsTo(models.Categoria, {
+      foreignKey: "categoria_id",
+      sourceKey: "id",
+      timestamps: false,
+    });
   };
-
   return Libro;
 };
