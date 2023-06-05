@@ -1,4 +1,5 @@
 const db = require("../../database/models");
+const { Op } = require("sequelize");
 const sequelize = db.sequelize;
 
 module.exports = {
@@ -64,7 +65,7 @@ module.exports = {
   filtrarPorTitulo: (req, res) => {
     const { titulo } = req.query;
     db.Libro.findAll({
-      where: { titulo: titulo },
+      where: { titulo: { [Op.like]: "%" + titulo + "%" } },
       include: [db.Autor, db.Categoria],
     })
       .then((libros) => {
@@ -114,6 +115,39 @@ module.exports = {
       });
   },
 
+  categorias: (req, res) => {
+    db.Categoria.findAll()
+      .then((categorias) => {
+        console.log(categorias);
+        res.json(categorias);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({
+          codigo: 500,
+          mensaje: "Error al obtener las categorías",
+          error: error.message,
+        });
+      });
+  },
+
+  autores: (req, res) => {
+    db.Autor.findAll({
+      attributes: ["id", "nombre"],
+    })
+      .then((autores) => {
+        res.json(autores);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({
+          codigo: 500,
+          mensaje: "Error al obtener los autores",
+          error: error.message,
+        });
+      });
+  },
+
   librosPorCategoria: (req, res) => {
     const { id } = req.params;
     const librosPromise = db.Libro.findAll({
@@ -148,8 +182,6 @@ module.exports = {
   },
 
   nuevoLibro: (req, res) => {
-    console.log(req.body);
-    res.json(req.body);
     db.Libro.create({
       titulo: req.body.titulo,
       autor_id: req.body.autor_id,

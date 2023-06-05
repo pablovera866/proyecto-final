@@ -9,9 +9,9 @@ function NuevoLibro() {
   const crearLibro = (evento) => {
     evento.preventDefault();
     let cuerpo = {
-      title: evento.target.title.value,
-      author: evento.target.author.value,
-      category: evento.target.category.value,
+      titulo: evento.target.title.value,
+      autor_id: evento.target.author.value,
+      categoria_id: evento.target.category.value,
     };
     console.log(cuerpo);
     fetch(`http://127.0.0.1:3000/api/Libros`, {
@@ -33,7 +33,7 @@ function NuevoLibro() {
   };
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/api/categoria`)
+    fetch(`http://127.0.0.1:3000/api/categorias`)
       .then((respuesta) => {
         respuesta.json().then((resultado) => {
           setCategorias(resultado);
@@ -42,7 +42,7 @@ function NuevoLibro() {
       .catch((error) => {
         console.log(error);
       });
-    fetch(`http://127.0.0.1:3000/api/autor`)
+    fetch(`http://127.0.0.1:3000/api/autores`)
       .then((respuesta) => {
         respuesta.json().then((resultado) => {
           setAutores(resultado);
