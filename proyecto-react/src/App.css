@@ -8,31 +8,33 @@
 
 .background {
   min-height: 100vh;
-  background-color: rgba(233, 36, 36, 0.534);
+  background-color: rgba(0, 0, 0, 0.534);
 }
 
 .navbar {
-  background-color: rgba(104, 15, 15, 0.534);
+  background-color: rgba(12, 12, 12, 0.534);
   display: flex;
   justify-content: space-around;
   flex-direction: row;
 }
 
 .button {
+  text-decoration: none;
   margin: 0.5rem;
   padding: 1rem;
-  background-color: rgba(104, 15, 15, 0.534);
+  background-color: rgba(29, 29, 29, 0.534);
   font-size: 1.2rem;
   color: white;
   font-weight: 700;
   width: 7rem;
   text-align: center;
-  box-shadow: rgba(168, 87, 87, 0.534);
-  border: none;
+  box-shadow: rgba(31, 31, 31, 0.534);
+  border: 2px;
+  border-color: black;
 }
 
 .button:hover {
-  box-shadow: rgba(46, 16, 16, 0.534);
+  box-shadow: rgba(20, 20, 20, 0.534);
 }
 
 .card-holder {
@@ -74,7 +76,7 @@
 }
 
 .book-page {
-  background-color: #c20000;
+  background-color: #000000;
   padding: 2.5rem 0.5rem 0.5rem 2.5rem;
   width: 45vw;
   border-radius: 0.2rem;
@@ -90,4 +92,6 @@
 
 .section-title {
   font-weight: 600;
+  text-decoration: none;
+  color: black;
 }

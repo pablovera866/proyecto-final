@@ -16,13 +16,13 @@ function Navbar() {
         <Link to={`/categorias`} className="button">
           Categorias
         </Link>
-        <form onSubmit={enviar} method="POST">
-          <input id="busqueda" name="busqueda" type="text"></input>
-          <button className="button">buscar</button>
-        </form>
         <Link to={`/nuevoLibro`} className="button">
           Nuevo Libro
         </Link>
+        <form onSubmit={enviar} method="POST">
+          <input id="busqueda" name="busqueda" type="text"></input>
+          <button className="button">Buscar</button>
+        </form>
       </div>
     </>
   );

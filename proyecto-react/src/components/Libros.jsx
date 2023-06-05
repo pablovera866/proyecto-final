@@ -1,41 +1,37 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Libros() {
   const [libros, setLibros] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/libros").then((respuesta) => {
-      respuesta.json().then((resultado) => {
+    fetch("http://127.0.0.1:3000/api/libros")
+      .then((respuesta) => respuesta.json())
+      .then((resultado) => {
         setLibros(resultado);
+      })
+      .catch((error) => {
+        setError(error.message);
       });
-    });
   }, []);
 
   return (
-    <>
-      <div>
-        {libros.length > 0 &&
-          libros.map((libro, index) => {
-            return (
-              <Link to={`/libro/${libro.id}`} key={`lista-libro-${index}`}>
-                <div>
-                  <div>Libro:</div>
-                  <div>{libro.titulo}</div>
-                </div>
-                <div>
-                  <div>Autor:</div>
-                  <div>{libro.autor}</div>
-                </div>
-                <div>
-                  <div>Categoria:</div>
-                  <div>{libro.categoria}</div>
-                </div>
-              </Link>
-            );
-          })}
-      </div>
-    </>
+    <div>
+      {error ? (
+        <div>Error al cargar los libros.</div>
+      ) : libros.length > 0 ? (
+        libros.map((libro, index) => (
+          <Link to={`/libro/${libro.id}`} key={`lista-libro-${index}`}>
+            <div>
+              <div className="section-title">{libro.titulo}</div>
+            </div>
+          </Link>
+        ))
+      ) : (
+        <div>No hay libros disponibles.</div>
+      )}
+    </div>
   );
 }
 

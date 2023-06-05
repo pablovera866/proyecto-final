@@ -54,8 +54,8 @@ function NuevoLibro() {
   }, []);
   return (
     <>
-      <div className="card-holder">
-        <div className="book-page">
+      <div>
+        <div>
           <form onSubmit={crearLibro} method="POST">
             <table>
               <tbody>

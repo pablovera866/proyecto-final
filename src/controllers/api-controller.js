@@ -29,6 +29,38 @@ module.exports = {
       });
   },
 
+  libro: (req, res) => {
+    const libroId = req.params.id;
+    db.Libro.findOne({
+      where: { id: libroId },
+      include: [{ model: db.Autor }, { model: db.Categoria }],
+    })
+      .then((libro) => {
+        if (libro) {
+          const resultado = {
+            id: libro.id,
+            titulo: libro.titulo,
+            autor: libro.Autor.nombre,
+            categoria: libro.Categorium.nombre,
+          };
+          res.json(resultado);
+        } else {
+          res.status(404).json({
+            codigo: 404,
+            mensaje: "Libro no encontrado",
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({
+          codigo: 500,
+          mensaje: "Error al obtener el libro",
+          error: error.message,
+        });
+      });
+  },
+
   filtrarPorTitulo: (req, res) => {
     const { titulo } = req.query;
     db.Libro.findAll({

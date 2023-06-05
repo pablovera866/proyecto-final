@@ -1,50 +1,51 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function FiltrarPorTitulo() {
   const [libros, setLibros] = useState([]);
-  let { titulo } = useParams();
+  const [error, setError] = useState(false);
+  const { titulo } = useParams();
+
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/filtrar/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: titulo,
-      }),
-    }).then((respuesta) => {
-      respuesta.json().then((resultado) => {
-        setLibros(resultado);
+    fetch(`http://localhost:3000/api/libros/filtrar?titulo=${titulo}`)
+      .then((respuesta) => respuesta.json())
+      .then((resultado) => {
+        if (resultado.length > 0) {
+          setLibros(resultado);
+          setError(false);
+        } else {
+          setError(true);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
       });
-    });
   }, [titulo]);
+
   return (
     <>
-      <div className="card-holder">
-        {libros.length > 0 &&
-          libros.map((libro, index) => {
-            return (
-              <Link
-                to={`/libro/${libro.id}`}
-                className="card"
-                key={`lista-libro-${index}`}
-              >
-                <div>
-                  <div className="cardTitle">Libro:</div>
-                  <div className="cardVar">{libro.titulo}</div>
-                </div>
-                <div>
-                  <div className="cardTitle">Autor:</div>
-                  <div className="cardVar">{libro.autor}</div>
-                </div>
-                <div>
-                  <div className="cardTitle">Categoria:</div>
-                  <div className="cardVar">{libro.categoria}</div>
-                </div>
-              </Link>
-            );
-          })}
+      <div>
+        {libros.length > 0 ? (
+          libros.map((libro, index) => (
+            <div key={`lista-libro-${index}`}>
+              <div>
+                <div className="section-title">Libro:</div>{" "}
+                <div>{libro.titulo}</div>
+              </div>
+              <div>
+                <div className="section-title">Autor:</div>{" "}
+                <div>{libro.autor}</div>
+              </div>
+              <div>
+                <div className="section-title">Categoria:</div>{" "}
+                <div>{libro.categoria}</div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div>No se encontraron libros con ese título.</div>
+        )}
       </div>
     </>
   );

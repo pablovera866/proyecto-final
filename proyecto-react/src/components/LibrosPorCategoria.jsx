@@ -1,35 +1,29 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function LibrosPorCategoria() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/api/categoria/${id}/libros`)
-      .then((respuesta) => {
-        respuesta.json().then((resultado) => {
-          setCategorias(resultado);
-        });
+    fetch("http://localhost:3001/api/categorias")
+      .then((response) => response.json())
+      .then((data) => {
+        setCategorias(data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
   return (
-    <>
-      <div className="card-holder">
-        {categorias.length > 0 &&
-          categorias.map((categoria, index) => {
-            return (
-              <div className="card" key={`libros-categoria-${index}`}>
-                <div>
-                  <div className="cardTitle">Categoria:</div>
-                  <div className="cardVar">{categoria.nombre}</div>
-                </div>
-              </div>
-            );
-          })}
-      </div>
-    </>
+    <div>
+      <h1>Categorías</h1>
+      {categorias.map((categoria) => (
+        <div key={categoria.id}>
+          <Link to={`/categorias/${categoria.id}`}>{categoria.nombre}</Link>
+        </div>
+      ))}
+    </div>
   );
 }
 
