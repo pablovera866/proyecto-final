@@ -117,6 +117,7 @@ module.exports = {
 
   nuevoLibro: (req, res) => {
     console.log(req.body);
+    res.json(req.body);
     db.Libro.create({
       titulo: req.body.titulo,
       autor_id: req.body.autor_id,

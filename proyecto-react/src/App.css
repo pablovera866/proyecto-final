@@ -1,0 +1,93 @@
+:root {
+  --oscuro: #0e1116;
+  --azulMar: #374a67;
+  --morado: #616283;
+  --rosa: #9e7b9b;
+  --lavanda: #cb9cf2;
+}
+
+.background {
+  min-height: 100vh;
+  background-color: rgba(233, 36, 36, 0.534);
+}
+
+.navbar {
+  background-color: rgba(104, 15, 15, 0.534);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.button {
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: rgba(104, 15, 15, 0.534);
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 700;
+  width: 7rem;
+  text-align: center;
+  box-shadow: rgba(168, 87, 87, 0.534);
+  border: none;
+}
+
+.button:hover {
+  box-shadow: rgba(46, 16, 16, 0.534);
+}
+
+.card-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: var(--oscuro);
+  justify-content: space-evenly;
+  padding-top: 2rem;
+  min-height: 100%;
+}
+
+.card {
+  margin: 1rem;
+  padding: 2rem;
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 10rem;
+  height: 12rem;
+  background-color: var(--morado);
+  box-shadow: 0.1rem 0.1rem 0.6rem var(--rosa);
+  border-radius: 0.5rem;
+}
+
+.card:hover {
+  box-shadow: 0.1rem 0.1rem 2rem var(--lavanda);
+}
+
+.cardTitle {
+  color: aliceblue;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.cardVar {
+  color: aliceblue;
+}
+
+.book-page {
+  background-color: #c20000;
+  padding: 2.5rem 0.5rem 0.5rem 2.5rem;
+  width: 45vw;
+  border-radius: 0.2rem;
+  box-shadow: 0.1rem 0.1rem 2rem var(--azulMar);
+}
+
+.section {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+}
+
+.section-title {
+  font-weight: 600;
+}
