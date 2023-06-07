@@ -42,7 +42,9 @@ module.exports = {
             id: libro.id,
             titulo: libro.titulo,
             autor: libro.Autor.nombre,
+            autor_id: libro.Autor.id,
             categoria: libro.Categorium.nombre,
+            categoria_id: libro.Categorium.id,
           };
           res.json(resultado);
         } else {
@@ -74,7 +76,9 @@ module.exports = {
             id: libro.id,
             titulo: libro.titulo,
             autor: libro.Autor.nombre,
+            autor_id: libro.Autor.id,
             categoria: libro.Categorium.nombre,
+            categoria_id: libro.Categorium.id,
           };
         });
         res.json(resultado);
@@ -165,7 +169,9 @@ module.exports = {
               id: libro.id,
               titulo: libro.titulo,
               autor: libro.Autor.nombre,
+              autor_id: libro.Autor.id,
               categoria: libro.Categorium.nombre,
+              categoria_id: libro.Categorium.id,
             }
           )
         );

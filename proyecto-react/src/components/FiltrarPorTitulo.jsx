@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function FiltrarPorTitulo() {
   const [libros, setLibros] = useState([]);
@@ -24,30 +24,33 @@ function FiltrarPorTitulo() {
   }, [titulo]);
 
   return (
-    <>
-      <div>
-        {libros.length > 0 ? (
-          libros.map((libro, index) => (
-            <div key={`lista-libro-${index}`}>
-              <div>
-                <div className="section-title">Libro:</div>{" "}
-                <div>{libro.titulo}</div>
-              </div>
-              <div>
-                <div className="section-title">Autor:</div>{" "}
-                <div>{libro.autor}</div>
-              </div>
-              <div>
-                <div className="section-title">Categoria:</div>{" "}
-                <div>{libro.categoria}</div>
-              </div>
+    <div className="background">
+      {libros.length > 0 ? (
+        libros.map((libro, index) => (
+          <div key={`lista-libro-${index}`}>
+            <h3>{libro.titulo}</h3>
+            <div>
+              <span className="section-title">Autor/a: </span>
+              <Link className="no-decoration" to={`/autor/${libro.autor_id}`}>
+                {libro.autor}
+              </Link>
             </div>
-          ))
-        ) : (
-          <div>No se encontraron libros con ese título.</div>
-        )}
-      </div>
-    </>
+            <div>
+              <span className="section-title">Categoria: </span>
+              <Link
+                className="no-decoration"
+                to={`/categorias/${libro.categoria_id}`}
+              >
+                {libro.categoria}
+              </Link>
+            </div>
+            <br />
+          </div>
+        ))
+      ) : (
+        <div>No se encontraron libros con ese título.</div>
+      )}
+    </div>
   );
 }
 

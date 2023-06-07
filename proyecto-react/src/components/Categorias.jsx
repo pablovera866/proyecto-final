@@ -16,10 +16,16 @@ function Categorias() {
   }, []);
 
   return (
-    <div>
+    <div className="background">
+      <h3>Categorias de libros</h3>
       {categorias.map((categoria) => (
         <div className="section-title" key={categoria.id}>
-          <Link to={`/categorias/${categoria.id}`}>{categoria.nombre}</Link>
+          <Link to={`/categorias/${categoria.id}`}>
+            {" "}
+            <div>
+              <div className="section-title">{categoria.nombre}</div>
+            </div>
+          </Link>
         </div>
       ))}
     </div>

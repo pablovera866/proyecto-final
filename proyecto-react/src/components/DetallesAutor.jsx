@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import moment from "moment";
 
 function DetallesAutor() {
   const [autor, setautor] = useState(null);
@@ -12,37 +13,32 @@ function DetallesAutor() {
           setautor(resultado);
         });
       })
-      .catch((error) => {
-        console.log(error);
-        res.status(500).json({
-          codigo: 500,
-          mensaje: "Error al mostrar el autor",
-          error: error.message,
-        });
-      });
+      .catch((error) => {});
   }, []);
+
+  const formatDate = (date) => {
+    return moment(date).format("DD/MM/YYYY");
+  };
+
   return (
     <>
       {autor == null ? (
-        <div>No existe el autor</div>
+        <div className="background">No existe el autor</div>
       ) : (
-        <div className="card-holder">
-          <div className="book-page">
-            <div className="section">
-              <div className="book-line">
-                <span className="section-title">Autor</span>: {autor.nombre}
-              </div>
-              <div className="book-line">
-                <span className="section-title">Nacionalidad</span>:{" "}
-                {autor.nombre}
-              </div>
+        <div className="background">
+          <div>
+            <h3>Detalles del autor {autor.nombre}</h3>
+          </div>
+          <div>
+            <span className="section-title">Nacionalidad</span>:{" "}
+            {autor.nacionalidad}
+          </div>
+          <div>
+            <div>
+              <span className="section-title">Fecha de Nacimiento</span>:{" "}
+              {formatDate(autor.fecha_nacimiento)}
             </div>
-            <div className="section">
-              <div className="book-line">
-                <span className="section-title">Fecha de Nacimiento</span>:{" "}
-                {autor.fecha_nacimiento}
-              </div>
-            </div>
+            <br />
           </div>
         </div>
       )}

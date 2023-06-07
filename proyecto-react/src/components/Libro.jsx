@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function Libro() {
   const { id } = useParams();
@@ -24,14 +24,27 @@ function Libro() {
   }, [id]);
 
   return (
-    <div>
+    <div className="background">
+      <h3>{libro.titulo}</h3>
       {error ? (
         <div>{error}</div>
       ) : (
         <div>
-          <div className="section-title">Título: {libro.titulo}</div>
-          <div className="section-title">Autor: {libro.autor}</div>
-          <div className="section-title">Categoría: {libro.categoria}</div>
+          <div>
+            <span className="section-title">Autor/a: </span>
+            <Link className="no-decoration" to={`/autor/${libro.autor_id}`}>
+              {libro.autor}
+            </Link>
+          </div>
+          <div>
+            <span className="section-title">Categoría: </span>
+            <Link
+              className="no-decoration"
+              to={`/categorias/${libro.categoria_id}`}
+            >
+              {libro.categoria}
+            </Link>
+          </div>
         </div>
       )}
     </div>

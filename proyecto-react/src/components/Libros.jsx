@@ -17,7 +17,8 @@ function Libros() {
   }, []);
 
   return (
-    <div>
+    <div className="background">
+      <h3>Catálogo de Libros</h3>
       {error ? (
         <div>Error al cargar los libros.</div>
       ) : libros.length > 0 ? (
@@ -29,7 +30,7 @@ function Libros() {
           </Link>
         ))
       ) : (
-        <div>No hay libros disponibles.</div>
+        <div>.</div>
       )}
     </div>
   );

@@ -54,60 +54,58 @@ function NuevoLibro() {
   }, []);
   return (
     <>
-      <div>
-        <div>
-          <form onSubmit={crearLibro} method="POST">
-            <table>
-              <tbody>
-                <tr>
-                  <td className="section-title">Titulo</td>
-                  <td>
-                    <input type="text" id="title" name="title"></input>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="section-title">Autor</td>
-                  <td>
-                    <select name="author" id="author">
-                      <option value="-1">Seleccione una opcion</option>
-                      {autores.length > 0 &&
-                        autores.map((autor) => {
-                          return (
-                            <option
-                              value={autor.id}
-                              key={`autor-list-${autor.id}`}
-                            >
-                              {autor.nombre}
-                            </option>
-                          );
-                        })}
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="section-title">Categoria</td>
-                  <td>
-                    <select name="category" id="category">
-                      <option value="-1">Seleccione una opcion</option>
-                      {autores.length > 0 &&
-                        categorias.map((categoria) => {
-                          return (
-                            <option
-                              value={categoria.id}
-                              key={`categoria-list-${categoria.id}`}
-                            >
-                              {categoria.nombre}
-                            </option>
-                          );
-                        })}
-                    </select>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <button>Guardar</button>
-          </form>
-        </div>
+      <div className="background">
+        <form onSubmit={crearLibro} method="POST">
+          <table>
+            <tbody>
+              <tr>
+                <td className="section-title">Titulo</td>
+                <td>
+                  <input type="text" id="title" name="title"></input>
+                </td>
+              </tr>
+              <tr>
+                <td className="section-title">Autor</td>
+                <td>
+                  <select name="author" id="author">
+                    <option value="-1">Seleccione una opcion</option>
+                    {autores.length > 0 &&
+                      autores.map((autor) => {
+                        return (
+                          <option
+                            value={autor.id}
+                            key={`autor-list-${autor.id}`}
+                          >
+                            {autor.nombre}
+                          </option>
+                        );
+                      })}
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td className="section-title">Categoria</td>
+                <td>
+                  <select name="category" id="category">
+                    <option value="-1">Seleccione una opcion</option>
+                    {autores.length > 0 &&
+                      categorias.map((categoria) => {
+                        return (
+                          <option
+                            value={categoria.id}
+                            key={`categoria-list-${categoria.id}`}
+                          >
+                            {categoria.nombre}
+                          </option>
+                        );
+                      })}
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button>Guardar</button>
+        </form>
       </div>
     </>
   );

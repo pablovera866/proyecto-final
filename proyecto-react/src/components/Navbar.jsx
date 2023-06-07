@@ -20,7 +20,13 @@ function Navbar() {
           Nuevo Libro
         </Link>
         <form onSubmit={enviar} method="POST">
-          <input id="busqueda" name="busqueda" type="text"></input>
+          <input
+            className="button-search"
+            id="busqueda"
+            name="busqueda"
+            type="text"
+            placeholder="Titulo"
+          ></input>
           <button className="button">Buscar</button>
         </form>
       </div>
