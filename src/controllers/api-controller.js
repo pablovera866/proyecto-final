@@ -95,7 +95,9 @@ module.exports = {
 
   detallesAutor: (req, res) => {
     const { id } = req.params;
-    db.Autor.findByPk(id)
+    db.Autor.findByPk(id, {
+      include: db.Libro,
+    })
       .then((autor) => {
         if (autor) {
           const resultado = {
@@ -103,6 +105,7 @@ module.exports = {
             nombre: autor.nombre,
             nacionalidad: autor.nacionalidad,
             fecha_nacimiento: autor.fecha_nacimiento,
+            libros: autor.Libros,
           };
           res.json(resultado);
         } else {

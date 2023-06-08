@@ -54,7 +54,10 @@ function NuevoLibro() {
   }, []);
   return (
     <>
-      <div className="background">
+      <div>
+        <h2>Nuevo libro</h2>
+      </div>
+      <div className="background form">
         <form onSubmit={crearLibro} method="POST">
           <table>
             <tbody>

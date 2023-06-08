@@ -17,13 +17,13 @@ function Categorias() {
 
   return (
     <div className="background">
-      <h3>Categorias de libros</h3>
+      <h2>Categorias de libros</h2>
       {categorias.map((categoria) => (
         <div className="section-title" key={categoria.id}>
           <Link to={`/categorias/${categoria.id}`}>
             {" "}
             <div>
-              <div className="section-title">{categoria.nombre}</div>
+              <div className="section-title-link">{categoria.nombre}</div>
             </div>
           </Link>
         </div>

@@ -1,18 +1,12 @@
-:root {
-  --oscuro: #0e1116;
-  --azulMar: #374a67;
-  --morado: #616283;
-  --rosa: #9e7b9b;
-  --lavanda: #cb9cf2;
-}
-
 .no-decoration {
   color: black;
+  font-size: 1.2rem;
 }
 
 .background {
   min-height: 100vh;
   padding-left: 7px;
+  text-align: center;
 }
 
 .navbar {
@@ -22,17 +16,22 @@
   flex-direction: row;
 }
 
+.form {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   text-decoration: none;
   margin: 0.5rem;
   padding: 1rem;
-  background-color: rgba(29, 29, 29, 0.534);
+  background-color: rgb(41, 41, 41);
   font-size: 1.2rem;
   color: white;
   font-weight: 700;
   width: 7rem;
   text-align: center;
-  box-shadow: rgba(31, 31, 31, 0.534);
+  box-shadow: rgb(31, 31, 31);
   border: 2px;
   border-color: black;
 }
@@ -47,13 +46,40 @@
   font-weight: 700;
   width: 7rem;
   text-align: center;
-  box-shadow: rgba(31, 31, 31, 0.534);
+  box-shadow: rgb(31, 31, 31);
   border: 2px;
   border-color: black;
 }
 
-h3 {
+h2 {
   text-transform: uppercase;
+  background-color: rgb(41, 41, 41);
+  color: whitesmoke;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+.section-title {
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.section-title-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  text-decoration: underline;
+  text-decoration-color: #000000;
 }
 
 .button:hover {
@@ -64,7 +90,7 @@ h3 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: var(--oscuro);
+  background-color: rgb(34, 17, 17);
   justify-content: space-evenly;
   padding-top: 2rem;
   min-height: 100%;
@@ -79,13 +105,13 @@ h3 {
   justify-content: space-evenly;
   width: 10rem;
   height: 12rem;
-  background-color: var(--morado);
-  box-shadow: 0.1rem 0.1rem 0.6rem var(--rosa);
+  background-color: rgb(197, 48, 48);
+  box-shadow: 0.1rem 0.1rem 0.6rem rosybrown;
   border-radius: 0.5rem;
 }
 
 .card:hover {
-  box-shadow: 0.1rem 0.1rem 2rem var(--lavanda);
+  box-shadow: 0.1rem 0.1rem 2rem greenyellow;
 }
 
 .cardTitle {
@@ -103,7 +129,7 @@ h3 {
   padding: 2.5rem 0.5rem 0.5rem 2.5rem;
   width: 45vw;
   border-radius: 0.2rem;
-  box-shadow: 0.1rem 0.1rem 2rem var(--azulMar);
+  box-shadow: 0.1rem 0.1rem 2rem rgb(87, 57, 114);
 }
 
 .section {
@@ -111,10 +137,4 @@ h3 {
   display: flex;
   flex-direction: column;
   font-size: 1.1rem;
-}
-
-.section-title {
-  font-weight: 600;
-  text-decoration: none;
-  color: black;
 }

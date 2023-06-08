@@ -28,7 +28,7 @@ function FiltrarPorTitulo() {
       {libros.length > 0 ? (
         libros.map((libro, index) => (
           <div key={`lista-libro-${index}`}>
-            <h3>{libro.titulo}</h3>
+            <h2>{libro.titulo}</h2>
             <div>
               <span className="section-title">Autor/a: </span>
               <Link className="no-decoration" to={`/autor/${libro.autor_id}`}>
@@ -48,7 +48,7 @@ function FiltrarPorTitulo() {
           </div>
         ))
       ) : (
-        <div>No se encontraron libros con ese título.</div>
+        <h2>No se encontraron libros con ese título.</h2>
       )}
     </div>
   );

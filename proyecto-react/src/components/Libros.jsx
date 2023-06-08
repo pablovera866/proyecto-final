@@ -18,14 +18,14 @@ function Libros() {
 
   return (
     <div className="background">
-      <h3>Catálogo de Libros</h3>
+      <h2>Catálogo de Libros</h2>
       {error ? (
         <div>Error al cargar los libros.</div>
       ) : libros.length > 0 ? (
         libros.map((libro, index) => (
           <Link to={`/libro/${libro.id}`} key={`lista-libro-${index}`}>
             <div>
-              <div className="section-title">{libro.titulo}</div>
+              <div className="section-title-link">{libro.titulo}</div>
             </div>
           </Link>
         ))

@@ -25,12 +25,12 @@ function Libro() {
 
   return (
     <div className="background">
-      <h3>{libro.titulo}</h3>
+      <h2>{libro.titulo}</h2>
       {error ? (
         <div>{error}</div>
       ) : (
         <div>
-          <div>
+          <div className="">
             <span className="section-title">Autor/a: </span>
             <Link className="no-decoration" to={`/autor/${libro.autor_id}`}>
               {libro.autor}

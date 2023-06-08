@@ -28,13 +28,13 @@ function LibrosPorCategoria() {
 
   return (
     <div className="background">
-      <h3>Libros de la categoría {categoria}</h3>
+      <h2>Libros de la categoría {categoria}</h2>
       {libros.length > 0 ? (
         libros.map((libro) => (
           <div key={libro.id}>
             <div>
               <span className="section-title">Título: </span>
-              {libro.titulo}
+              <span className="no-decoration">{libro.titulo}</span>
             </div>
             <div>
               <span className="section-title">Autor/a: </span>
@@ -44,7 +44,7 @@ function LibrosPorCategoria() {
             </div>
             <div>
               <span className="section-title">Categoría: </span>
-              {libro.categoria}
+              <span className="no-decoration">{libro.categoria}</span>
             </div>
             <br />
           </div>

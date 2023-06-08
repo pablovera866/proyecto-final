@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 27-05-2023 a las 21:57:11
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-06-2023 a las 02:08:34
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -80,10 +80,10 @@ INSERT INTO `categoria` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `libros`
+-- Estructura de tabla para la tabla `libro`
 --
 
-CREATE TABLE `libros` (
+CREATE TABLE `libro` (
   `id` int(11) NOT NULL,
   `titulo` varchar(255) DEFAULT NULL,
   `autor_id` int(11) DEFAULT NULL,
@@ -91,10 +91,10 @@ CREATE TABLE `libros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `libros`
+-- Volcado de datos para la tabla `libro`
 --
 
-INSERT INTO `libros` (`id`, `titulo`, `autor_id`, `categoria_id`) VALUES
+INSERT INTO `libro` (`id`, `titulo`, `autor_id`, `categoria_id`) VALUES
 (1, '1984', 3, 4),
 (2, 'Ficciones', 5, 5),
 (3, 'Platos de Estacion', 7, 6),
@@ -104,7 +104,11 @@ INSERT INTO `libros` (`id`, `titulo`, `autor_id`, `categoria_id`) VALUES
 (7, 'Rebelion en la Granja', 3, 4),
 (8, 'El Aleph', 5, 5),
 (9, 'La Casa de los Espiritus', 1, 4),
-(10, 'Ronin', 4, 3);
+(10, 'Ronin', 4, 3),
+(16, 'El Regreso del Caballero Oscuro', 4, 3),
+(18, 'La Broma Asesina', 6, 3),
+(19, 'A Través del Espejo', 9, 2),
+(20, 'El Mortal Inmortal', 2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -123,9 +127,9 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `libros`
+-- Indices de la tabla `libro`
 --
-ALTER TABLE `libros`
+ALTER TABLE `libro`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_autor` (`autor_id`),
   ADD KEY `fk_categoria` (`categoria_id`);
@@ -147,19 +151,19 @@ ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `libros`
+-- AUTO_INCREMENT de la tabla `libro`
 --
-ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `libro`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `libros`
+-- Filtros para la tabla `libro`
 --
-ALTER TABLE `libros`
+ALTER TABLE `libro`
   ADD CONSTRAINT `fk_autor` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
   ADD CONSTRAINT `fk_categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`);
 COMMIT;
