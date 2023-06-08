@@ -15,6 +15,9 @@ module.exports = (sequelize, dataTypes) => {
     fecha_nacimiento: {
       type: dataTypes.DATE,
     },
+    biografia: {
+      type: dataTypes.DATE,
+    },
   };
   let config = {
     tableName: "autor",

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2023 a las 02:08:34
+-- Tiempo de generación: 08-06-2023 a las 15:03:27
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -31,24 +31,25 @@ CREATE TABLE `autor` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `nacionalidad` varchar(255) DEFAULT NULL,
-  `fecha_nacimiento` date DEFAULT NULL
+  `fecha_nacimiento` date DEFAULT NULL,
+  `biografia` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `autor`
 --
 
-INSERT INTO `autor` (`id`, `nombre`, `nacionalidad`, `fecha_nacimiento`) VALUES
-(1, 'Isabel Allende', 'Chile', '1942-08-02'),
-(2, 'Mary Shelley', 'Reino Unido', '1797-08-30'),
-(3, 'George Orwell', 'Reino Unido', '1903-06-25'),
-(4, 'Frank Miller', 'Estados Unidos', '1957-01-27'),
-(5, 'Jorge Luis Borges', 'Argentina', '1898-08-24'),
-(6, 'Alan Moore', 'Reino Unido', '1953-11-18'),
-(7, 'Narda Lepes', 'Argentina', '1972-07-29'),
-(8, 'Phillip K. Dick', 'Estados Unidos', '1928-12-16'),
-(9, 'Lewis Carroll', 'Reino Unido', '1832-01-27'),
-(10, 'Ray Bradbury', 'Estados Unidos', '1920-08-22');
+INSERT INTO `autor` (`id`, `nombre`, `nacionalidad`, `fecha_nacimiento`, `biografia`) VALUES
+(1, 'Isabel Allende', 'Chile', '1942-08-02', 'Isabel Allende es una reconocida escritora chilena. Nacida el 2 de agosto de 1942 en Lima, Perú, es conocida por su estilo de escritura mágico y realista. Algunas de sus obras más famosas incluyen \"La casa de los espíritus\" y \"Paula\".'),
+(2, 'Mary Shelley', 'Reino Unido', '1797-08-30', 'Mary Shelley fue una escritora británica, reconocida por ser la autora de la novela gótica \"Frankenstein\". Nacida el 30 de agosto de 1797 en Londres, Inglaterra, su obra maestra ha dejado una huella perdurable en la literatura.'),
+(3, 'George Orwell', 'Reino Unido', '1903-06-25', 'George Orwell, cuyo nombre real era Eric Arthur Blair, fue un escritor y periodista británico. Nacido el 25 de junio de 1903 en Motihari, India Británica, es famoso por sus obras \"1984\" y \"Rebelión en la granja\", que exploran temas como el totalitarismo y la crítica social.'),
+(4, 'Frank Miller', 'Estados Unidos', '1957-01-27', 'Frank Miller es un reconocido autor de cómics estadounidense. Nacido el 27 de enero de 1957 en Olney, Maryland, es conocido por su estilo oscuro y su influencia en obras como \"The Dark Knight Returns\" y \"Sin City\".'),
+(5, 'Jorge Luis Borges', 'Argentina', '1898-08-24', 'Jorge Luis Borges fue un destacado escritor y ensayista argentino. Nacido el 24 de agosto de 1899 en Buenos Aires, es considerado uno de los grandes maestros de la literatura del siglo XX. Sus obras exploran la metaficción y los laberintos literarios.'),
+(6, 'Alan Moore', 'Reino Unido', '1953-11-18', 'Alan Moore es un influyente escritor de cómics y novelista británico. Nacido el 18 de noviembre de 1953 en Northampton, Inglaterra, es conocido por obras como \"Watchmen\" y \"V de Vendetta\", que han revolucionado el género de los cómics.'),
+(7, 'Narda Lepes', 'Argentina', '1972-07-29', 'Alan Moore es un influyente escritor de cómics y novelista británico. Nacido el 18 de noviembre de 1953 en Northampton, Inglaterra, es conocido por obras como \"Watchmen\" y \"V de Vendetta\", que han revolucionado el género de los cómics.'),
+(8, 'Phillip K. Dick', 'Estados Unidos', '1928-12-16', 'Phillip K. Dick fue un influyente escritor de ciencia ficción estadounidense. Nacido el 16 de diciembre de 1928 en Chicago, Illinois, sus obras exploran temas de realidad alternativa, identidad y tecnología. Algunas de sus obras más conocidas son \"Blade Runner\" y \"El hombre en el castillo\".'),
+(9, 'Lewis Carroll', 'Reino Unido', '1832-01-27', 'Lewis Carroll, cuyo nombre real era Charles Lutwidge Dodgson, fue un destacado escritor y matemático británico. Nacido el 27 de enero de 1832 en Daresbury, Inglaterra, es famoso por su obra \"Alicia en el país de las maravillas\", que ha capturado la imaginación de generaciones de lectores.'),
+(10, 'Ray Bradbury', 'Estados Unidos', '1920-08-22', 'Lewis Carroll, cuyo nombre real era Charles Lutwidge Dodgson, fue un destacado escritor y matemático británico. Nacido el 27 de enero de 1832 en Daresbury, Inglaterra, es famoso por su obra \"Alicia en el país de las maravillas\", que ha capturado la imaginación de generaciones de lectores.');
 
 -- --------------------------------------------------------
 

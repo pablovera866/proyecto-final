@@ -105,6 +105,7 @@ module.exports = {
             nombre: autor.nombre,
             nacionalidad: autor.nacionalidad,
             fecha_nacimiento: autor.fecha_nacimiento,
+            biografia: autor.biografia,
             libros: autor.Libros,
           };
           res.json(resultado);

@@ -40,18 +40,24 @@ function DetallesAutor() {
           <div>
             <h2>Detalles del autor {autor.nombre}</h2>
           </div>
-          <div>
-            <span className="section-title">Nacionalidad: </span>
-            <span className="no-decoration">{autor.nacionalidad}</span>
-          </div>
-          <div>
+          <div className=" background-autor">
             <div>
-              <span className="section-title">Fecha de Nacimiento: </span>
-              <span className="no-decoration">
-                {formatDate(autor.fecha_nacimiento)}
-              </span>
+              <span className="section-title">Nacionalidad: </span>
+              <span className="no-decoration">{autor.nacionalidad}</span>
             </div>
-            <br />
+            <div>
+              <div>
+                <span className="section-title">Fecha de Nacimiento: </span>
+                <span className="no-decoration">
+                  {formatDate(autor.fecha_nacimiento)}
+                </span>
+              </div>
+              <div>
+                <span className="section-title">Biografía: </span>
+                <span className="no-decoration">{autor.biografia}</span>
+              </div>
+              <br />
+            </div>
           </div>
           {libros.length > 0 ? (
             <div>

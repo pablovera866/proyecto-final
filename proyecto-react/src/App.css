@@ -4,9 +4,12 @@
 }
 
 .background {
-  min-height: 100vh;
-  padding-left: 7px;
   text-align: center;
+}
+
+.background-autor {
+  padding-left: 50vh;
+  padding-right: 50vh;
 }
 
 .navbar {
